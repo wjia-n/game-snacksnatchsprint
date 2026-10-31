@@ -70,9 +70,11 @@ class _SupportScreenState extends State<SupportScreen> {
             child: Text(_thanks!, textAlign: TextAlign.center,
                 style: const TextStyle(fontFamilyFallback: const ['Noto Color Emoji'], color: Colors.amber, fontWeight: FontWeight.bold)),
           ),
-        _tipBtn(c.tip1Label, c.tip1Id, Colors.amber.shade700),
-        const SizedBox(height: 10),
-        _tipBtn(c.tip2Label, c.tip2Id, Colors.white24),
+        Row(children: [
+          Expanded(child: _tipBtnFlex(c.tip1Label, c.tip1Id, Colors.amber.shade700)),
+          const SizedBox(width: 10),
+          Expanded(child: _tipBtnFlex(c.tip2Label, c.tip2Id, Colors.white24)),
+        ]),
         const SizedBox(height: 20),
         ElevatedButton.icon(
           icon: const Icon(Icons.share),
@@ -92,14 +94,14 @@ class _SupportScreenState extends State<SupportScreen> {
     );
   }
 
-  Widget _tipBtn(String label, String productId, Color bg) => SizedBox(
-    width: double.infinity,
-    child: ElevatedButton(
+  Widget _tipBtnFlex(String label, String productId, Color bg) =>
+    ElevatedButton(
       style: ElevatedButton.styleFrom(backgroundColor: bg, foregroundColor: Colors.white,
+          elevation: 6, shadowColor: Colors.black54,
           padding: const EdgeInsets.symmetric(vertical: 16),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14))),
       onPressed: () => _tip(productId, label),
       child: Text(label, style: const TextStyle(fontFamilyFallback: const ['Noto Color Emoji'], fontSize: 16, fontWeight: FontWeight.bold)),
-    ),
-  );
+    );
+
 }

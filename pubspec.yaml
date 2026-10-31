@@ -1,8 +1,7 @@
 name: snacksnatchsprint
 description: "Snack Snatch Sprint - snatch snacks from conveyor belts"
 publish_to: 'none'
-version: 1.0.0+3
-
+version: 1.0.0+4
 environment:
   sdk: ^3.13.5
 
